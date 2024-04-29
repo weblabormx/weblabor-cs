@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\File;
 class OptimizeFront extends Command
 {
     protected $signature = 'optimize:front';
+
     protected $description = 'Optimize Front classes';
 
     public function handle()
@@ -36,7 +37,7 @@ class OptimizeFront extends Command
         $type = $type[count($type) - 1];
         $models = $this->getNamespaces($content, $namespace);
         $namespace2 = str_replace('\\', '\\\\', $namespace);
-        if(count($models)==0) {
+        if (count($models) == 0) {
             return $content;
         }
         foreach ($models as $model) {
@@ -44,15 +45,15 @@ class OptimizeFront extends Command
             $model = str_replace('\\', '\\\\', $model);
             $content = preg_replace("/use $namespace2\\\\".$model.";.*\n/", '', $content);
             $content = preg_replace("/\b$model::/", "$type\\$model::", $content);
-            if($use_new) {
+            if ($use_new) {
                 $content = str_replace("new $model", "new $type\\$original_model", $content);
             }
 
-            if(str_contains($model, '\\')) {
+            if (str_contains($model, '\\')) {
                 $clean_model = explode('\\', $model);
                 $clean_model = $clean_model[count($clean_model) - 1];
                 $content = preg_replace("/\b$clean_model::/", "$type\\$model::", $content);
-                if($use_new) {
+                if ($use_new) {
                     $content = str_replace("new $clean_model", "new $type\\$original_model", $content);
                 }
             }
@@ -66,6 +67,7 @@ class OptimizeFront extends Command
         if (! str_contains($content, "use $namespace;")) {
             $content = preg_replace("/namespace .*;\n/", "$0\nuse $namespace;", $content);
         }
+
         return $content;
     }
 
@@ -77,6 +79,7 @@ class OptimizeFront extends Command
         foreach ($matches[2] as $match) {
             $namespaces[] = $match;
         }
+
         return $namespaces;
     }
 }
