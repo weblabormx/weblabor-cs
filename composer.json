@@ -17,14 +17,14 @@
     ],
     "require": {
         "php": "^8.2",
+        "kubawerlos/php-cs-fixer-custom-fixers": "^3.21",
+        "laravel/pint": "^1.15",
         "spatie/laravel-package-tools": "^1.16",
         "illuminate/contracts": "^10.0||^11.0"
     },
     "require-dev": {
         "nunomaduro/collision": "^8.1.1||^7.10.0",
-        "kubawerlos/php-cs-fixer-custom-fixers": "^3.21",
         "larastan/larastan": "^2.9",
-        "laravel/pint": "^1.15",
         "orchestra/testbench": "^9.0.0||^8.22.0",
         "pestphp/pest": "^2.34",
         "pestphp/pest-plugin-arch": "^2.7",
