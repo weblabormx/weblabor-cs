@@ -24,7 +24,9 @@ class OptimizeTraitsOnOneLine extends Command
             preg_match_all($pattern, $content, $matches);
             $variables = collect(explode("\n", $matches[1][0]))->map(function ($item) {
                 return trim($item);
-            })->whereNotEmpty()->values();
+            })->filter(function($field) {
+                return isset($field) && strlen($field) > 0;
+            })->values();
             if ($variables->count() < 2) {
                 continue;
             }
