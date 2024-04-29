@@ -4,7 +4,6 @@ namespace Weblabor\CodeStandars;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Weblabor\CodeStandars\Commands\CodeStandarsCommand;
 
 class CodeStandarsServiceProvider extends PackageServiceProvider
 {
@@ -20,6 +19,10 @@ class CodeStandarsServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews()
             ->hasMigration('create_weblabor-cs_table')
-            ->hasCommand(CodeStandarsCommand::class);
+            ->hasCommand(Commands\CleanCode::class)
+            ->hasCommand(Commands\OptimizeFront::class)
+            ->hasCommand(Commands\OptimizeRemovePhpDocs::class)
+            ->hasCommand(Commands\OptimizeTraitsOnOneLine::class)
+            ->hasCommand(Commands\OptimizeVariablesOnOneLine::class);
     }
 }

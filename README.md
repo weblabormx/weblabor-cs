@@ -5,52 +5,19 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/weblabormx/weblabor-cs/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/weblabormx/weblabor-cs/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/weblabormx/weblabor-cs.svg?style=flat-square)](https://packagist.org/packages/weblabormx/weblabor-cs)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/weblabor-cs.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/weblabor-cs)
+Package to clean the code of projects
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require weblabormx/weblabor-cs
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="weblabor-cs-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="weblabor-cs-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="weblabor-cs-views"
+composer require weblabormx/weblabor-cs --dev
 ```
 
 ## Usage
 
-```php
-$codeStandars = new Weblabor\CodeStandars();
-echo $codeStandars->echoPhrase('Hello, Weblabor!');
-```
+Just execute `php artisan clean:code` to clean the code
 
 ## Testing
 
