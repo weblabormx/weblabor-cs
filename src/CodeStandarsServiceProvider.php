@@ -4,7 +4,6 @@ namespace Weblabor\CodeStandars;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Weblabor\CodeStandars\Commands;
 
 class CodeStandarsServiceProvider extends PackageServiceProvider
 {
