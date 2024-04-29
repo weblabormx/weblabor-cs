@@ -7,6 +7,7 @@ use Illuminate\Console\Command;
 class CleanCode extends Command
 {
     public $signature = 'clean:code';
+
     public $description = 'Execute the code standars';
 
     public function handle(): int

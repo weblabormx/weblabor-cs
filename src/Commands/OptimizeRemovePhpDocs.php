@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\File;
 class OptimizeRemovePhpDocs extends Command
 {
     protected $signature = 'optimize:remove-comments';
+
     protected $description = 'Remove PHP Docs';
 
     public function handle()
@@ -22,23 +23,23 @@ class OptimizeRemovePhpDocs extends Command
             $comment = '';
             foreach ($lines as $line) {
                 if (strpos(trim($line), '/*') === 0) {
-                    $comment .= $line . "\n";
+                    $comment .= $line."\n";
                     if (strpos(trim($line), '*/') !== false) {
                         $comments[] = $comment;
                         $comment = '';
                     }
                 } elseif (strpos(trim($line), '*/') !== false) {
-                    $comment .= $line . "\n";
+                    $comment .= $line."\n";
                     $comments[] = $comment;
                     $comment = '';
                 } elseif (! empty($comment)) {
-                    $comment .= $line . "\n";
+                    $comment .= $line."\n";
                 }
             }
-            $comments = collect($comments)->filter(function($item) {
+            $comments = collect($comments)->filter(function ($item) {
                 return str_contains($item, '@');
             });
-            if(count($comments)==0) {
+            if (count($comments) == 0) {
                 continue;
             }
             foreach ($comments as $comment) {
