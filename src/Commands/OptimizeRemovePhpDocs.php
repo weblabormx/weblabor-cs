@@ -48,6 +48,6 @@ class OptimizeRemovePhpDocs extends Command
             File::put($file->getPathname(), $content);
         }
 
-        $this->info('Front classes optimized successfully.');
+        $this->info('PHP Docs removed successfully.');
     }
 }

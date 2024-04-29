@@ -47,6 +47,6 @@ class OptimizeTraitsOnOneLine extends Command
             File::put($file->getPathname(), $content);
         }
 
-        $this->info('Front classes optimized successfully.');
+        $this->info('Traits on One line executed successfully.');
     }
 }

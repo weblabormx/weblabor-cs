@@ -47,6 +47,6 @@ class OptimizeVariablesOnOneLine extends Command
             File::put($file->getPathname(), $content);
         }
 
-        $this->info('Front classes optimized successfully.');
+        $this->info('Variabels on one line executed successfully.');
     }
 }
