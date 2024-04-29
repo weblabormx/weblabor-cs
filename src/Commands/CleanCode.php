@@ -38,8 +38,8 @@ class CleanCode extends Command
 
     private function executeCommand(string $command): void
     {
-        $this->commit($command);
         $this->call($command);
+        $this->commit($command);
     }
 
     private function commit($name)
