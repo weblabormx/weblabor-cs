@@ -4,15 +4,14 @@ namespace Weblabor\CodeStandars\Commands;
 
 use Illuminate\Console\Command;
 
-class CodeStandarsCommand extends Command
+class CleanCode extends Command
 {
-    public $signature = 'weblabor-cs';
-
-    public $description = 'My command';
+    public $signature = 'clean:code';
+    public $description = 'Execute the code standars';
 
     public function handle(): int
     {
-        $this->comment('All done');
+        $this->call('optimize:front');
 
         return self::SUCCESS;
     }
