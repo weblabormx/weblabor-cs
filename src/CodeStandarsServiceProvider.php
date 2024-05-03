@@ -20,7 +20,7 @@ class CodeStandarsServiceProvider extends PackageServiceProvider
             ->hasViews()
             ->hasMigration('create_weblabor-cs_table')
             ->hasCommand(Commands\CleanCode::class)
-            ->hasCommand(Commands\OptimizeFront::class)
+            ->hasCommand(Commands\OptimizeNamespaces::class)
             ->hasCommand(Commands\OptimizeRemovePhpDocs::class)
             ->hasCommand(Commands\OptimizeTraitsOnOneLine::class)
             ->hasCommand(Commands\OptimizeVariablesOnOneLine::class);

@@ -16,7 +16,7 @@ class CleanCode extends Command
         $this->executeCsFixer();
 
         // Execute commands
-        $this->executeCommand('optimize:front');
+        $this->executeCommand('optimize:namespaces');
         $this->executeCommand('optimize:remove-comments');
         $this->executeCommand('optimize:traits-one-line');
         $this->executeCommand('optimize:variables-one-line');
@@ -39,7 +39,7 @@ class CleanCode extends Command
     private function executeCommand(string $command): void
     {
         $this->call($command);
-        $this->commit($command);
+        //$this->commit($command);
     }
 
     private function commit($name)
