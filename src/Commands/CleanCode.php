@@ -7,7 +7,6 @@ use Illuminate\Console\Command;
 class CleanCode extends Command
 {
     public $signature = 'clean:code';
-
     public $description = 'Execute the code standars';
 
     public function handle(): int
@@ -17,7 +16,7 @@ class CleanCode extends Command
 
         // Execute commands
         $this->executeCommand('optimize:namespaces');
-        $this->executeCommand('optimize:remove-comments');
+        // $this->executeCommand('optimize:remove-comments');
         $this->executeCommand('optimize:traits-one-line');
         $this->executeCommand('optimize:variables-one-line');
 
