@@ -15,7 +15,7 @@ class OptimizeVariablesOnOneLine extends Command
     {
         $folders = config('weblabor-cs.code_directories');
         foreach($folders as $folder) {
-            $files = File::allFiles(base_path('/'));
+            $files = File::allFiles(base_path($folder));
             foreach ($files as $file) {
                 $content = File::get($file->getPathname());
                 $types = ['public', 'private', 'protected'];

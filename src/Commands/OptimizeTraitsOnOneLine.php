@@ -15,7 +15,7 @@ class OptimizeTraitsOnOneLine extends Command
     {
         $folders = config('weblabor-cs.code_directories');
         foreach($folders as $folder) {
-            $files = File::allFiles(base_path('/'));
+            $files = File::allFiles(base_path($folder));
             foreach ($files as $file) {
                 $content = File::get($file->getPathname());
                 $pattern = '/[\bclass\|\btrait\]\s+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff ]*\s*{(([ \t\n]*use[a-zA-Z, ;]*)+)/s';
@@ -50,7 +50,7 @@ class OptimizeTraitsOnOneLine extends Command
                 File::put($file->getPathname(), $content);
             }
         }
-        
+
         $this->info('Traits on One line executed successfully.');
     }
 }

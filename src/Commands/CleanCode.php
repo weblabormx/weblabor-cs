@@ -39,11 +39,14 @@ class CleanCode extends Command
     private function executeCommand(string $command): void
     {
         $this->call($command);
-        //$this->commit($command);
+        $this->commit($command);
     }
 
     private function commit($name)
     {
+        if(!config('weblabor-cs.automatic_commit')) {
+            return;
+        }
         exec('git add .');
         exec('git commit -m "'.$name.'"');
     }

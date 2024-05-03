@@ -2,6 +2,7 @@
 
 return [
 
+	'automatic_commit' => true,
 	'code_directories' => [
 		'app'
 	],
