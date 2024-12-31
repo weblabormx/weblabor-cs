@@ -7,7 +7,7 @@ use Symfony\Component\Process\Process;
 
 class CleanCode extends Command
 {
-    public $signature = 'clean:code 
+    public $signature = 'clean:code
                          {--no-commit : Don\'t execute git commit}';
     public $description = 'Execute the code standards';
 
@@ -59,7 +59,8 @@ class CleanCode extends Command
 
     private function exec(string $command, array $args = []): bool
     {
-        $process = Process::fromShellCommandline($command, base_path(), [...$_ENV, ...$args]);
+        $process = Process::fromShellCommandline($command, base_path(), [...$_ENV, ...$args])
+            ->setTimeout(60 * 5);
 
         $process->run();
 
