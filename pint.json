@@ -38,7 +38,7 @@
 		"heredoc_to_nowdoc": false,
 		"include": false,
 		"increment_style": false,
-		"indentation_type": false,
+		"indentation_type": true,
 		"integer_literal_case": false,
 		"lambda_not_used_import": true,
 		"line_ending": false,
