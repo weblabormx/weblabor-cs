@@ -28,7 +28,6 @@
 			"case": "lower"
 		}, 
 		"control_structure_braces": false,
-		"control_structure_spacing": true,
 		"control_structure_continuation_position": false,
 		"declare_equal_normalize": false,
 		"declare_parentheses": false,
@@ -144,7 +143,7 @@
 			"comment_types": ["hash"]
 		},
 		"single_quote": true,
-		"single_space_around_construct": false,
+		"single_space_around_construct": true,
 		"space_after_semicolon": false,
 		"spaces_inside_parentheses": false,
 		"standardize_not_equals": false,
