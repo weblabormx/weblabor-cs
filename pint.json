@@ -37,7 +37,9 @@
 		"fully_qualified_strict_types": false,
 		"function_declaration": false,
 		"general_phpdoc_tag_rename": false,
-		"group_imports": true,
+		"group_import": {
+			"group_types": ["classy"]
+		},
 		"heredoc_to_nowdoc": false,
 		"include": false,
 		"increment_style": false,

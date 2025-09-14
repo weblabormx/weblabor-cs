@@ -14,10 +14,11 @@ class CleanCode extends Command
     public function handle(): int
     {
         $this->commit("Changes not saved");
+
+        $this->callAndCommit('optimize:namespaces');
         $this->executeCsFixer();
 
         // Execute commands
-        $this->callAndCommit('optimize:namespaces');
         $this->callAndCommit('optimize:traits-one-line');
         $this->callAndCommit('optimize:variables-one-line');
 
