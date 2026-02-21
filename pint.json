@@ -6,7 +6,11 @@
 		"binary_operator_spaces": false,
 		"blank_line_after_namespace": true,
 		"blank_line_after_opening_tag": true,
-		"blank_line_before_statement": false,
+		"blank_line_before_statement": {
+            "statements": [
+                "throw"
+            ]
+        },
 		"blank_line_between_import_groups": false,
 		"blank_lines_before_namespace": true,
 		"braces_position": false, 
@@ -73,7 +77,7 @@
 		"no_empty_statement": true,
 		"no_extra_blank_lines":
 		{
-			"tokens": ["extra", "throw", "use"]
+			"tokens": ["extra", "throw", "use", "continue", "break", "curly_brace_block"]
 		},
 		"no_leading_import_slash": false,
 		"no_leading_namespace_whitespace": false,
