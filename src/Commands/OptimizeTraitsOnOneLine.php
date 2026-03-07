@@ -28,7 +28,14 @@ class OptimizeTraitsOnOneLine extends Command
                 })->filter(function($field) {
                     return isset($field) && strlen($field) > 0;
                 })->values();
-                if ($variables->count() < 2) {
+
+                $traits = $variables->map(function($item) {
+                    $item = str_replace('use ', '', $item);
+                    $item = str_replace(';', '', $item);
+                    return $item;
+                })->implode(', ');
+                $traits = explode(',', $traits);
+                if ($variables->count() < 2 || count($traits) > 10) {
                     continue;
                 }
 
