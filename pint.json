@@ -6,7 +6,11 @@
 		"binary_operator_spaces": false,
 		"blank_line_after_namespace": true,
 		"blank_line_after_opening_tag": true,
-		"blank_line_before_statement": false,
+		"blank_line_before_statement": {
+            "statements": [
+                "throw"
+            ]
+        },
 		"blank_line_between_import_groups": false,
 		"blank_lines_before_namespace": true,
 		"braces_position": false, 
@@ -20,7 +24,9 @@
 		}, 
 		"clean_namespace": false,
 		"compact_nullable_type_declaration": false,
-		"concat_space": false,
+		"concat_space": {
+            "spacing": "one"
+        },
 		"constant_case":
 		{
 			"case": "lower"
@@ -29,16 +35,19 @@
 		"control_structure_continuation_position": false,
 		"declare_equal_normalize": false,
 		"declare_parentheses": false,
-		"elseif": false,
+		"elseif": true,
 		"encoding": false,
 		"full_opening_tag": false,
 		"fully_qualified_strict_types": false,
 		"function_declaration": false,
 		"general_phpdoc_tag_rename": false,
+		"group_import": {
+			"group_types": ["classy"]
+		},
 		"heredoc_to_nowdoc": false,
 		"include": false,
 		"increment_style": false,
-		"indentation_type": false,
+		"indentation_type": true,
 		"integer_literal_case": false,
 		"lambda_not_used_import": true,
 		"line_ending": false,
@@ -68,7 +77,7 @@
 		"no_empty_statement": true,
 		"no_extra_blank_lines":
 		{
-			"tokens": ["extra", "throw", "use"]
+			"tokens": ["extra", "throw", "use", "continue", "break", "curly_brace_block"]
 		},
 		"no_leading_import_slash": false,
 		"no_leading_namespace_whitespace": false,
@@ -96,7 +105,7 @@
 		"no_whitespace_before_comma_in_array": false,
 		"no_whitespace_in_blank_line": true,
 		"normalize_index_brace": true,
-		"not_operator_with_successor_space": true,
+		"not_operator_with_successor_space": false,
 		"nullable_type_declaration": false,
 		"nullable_type_declaration_for_default_null_value": false,
 		"object_operator_without_whitespace": false,
@@ -141,11 +150,12 @@
 			"comment_types": ["hash"]
 		},
 		"single_quote": true,
-		"single_space_around_construct": false,
+		"single_space_around_construct": true,
 		"space_after_semicolon": false,
 		"spaces_inside_parentheses": false,
 		"standardize_not_equals": false,
 		"statement_indentation": false,
+		"single_trait_insert_per_statement": false,
 		"switch_case_semicolon_to_colon": false,
 		"switch_case_space": false,
 		"ternary_operator_spaces": true,

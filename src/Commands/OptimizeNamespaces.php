@@ -5,26 +5,24 @@ namespace Weblabor\CodeStandars\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
-class OptimizeFront extends Command
+class OptimizeNamespaces extends Command
 {
-    protected $signature = 'optimize:front';
-
-    protected $description = 'Optimize Front classes';
+    protected $signature = 'optimize:namespaces';
+    protected $description = 'Optimize Namespaces declarations';
 
     public function handle()
     {
-        $files = File::allFiles(app_path('Front/Resources'));
-
-        foreach ($files as $file) {
-            $content = File::get($file->getPathname());
-            $content = $this->optimizeNamespace($content, 'WeblaborMx\Front\Inputs');
-            $content = $this->optimizeNamespace($content, 'WeblaborMx\Front\Texts');
-            $content = $this->optimizeNamespace($content, 'App\Front\Filters', true);
-            $content = $this->optimizeNamespace($content, 'App\Front\Actions', true);
-            $content = $this->optimizeNamespace($content, 'App\DocumentGroups', true);
-            $content = $this->optimizeNamespace($content, 'App\Documents', true);
-            $content = $this->optimizeNamespace($content, 'App\Jobs', true);
-            File::put($file->getPathname(), $content);
+        $folders = config('weblabor-cs.code_directories');
+        foreach($folders as $folder) {
+            $files = File::allFiles(base_path($folder));
+            foreach ($files as $file) {
+                $content = File::get($file->getPathname());
+                $namespaces = config('weblabor-cs.namespaces');
+                foreach($namespaces as $namespace) {
+                    $content = $this->optimizeNamespace($content, $namespace, true);
+                }
+                File::put($file->getPathname(), $content);
+            }
         }
 
         $this->info('Front classes optimized successfully.');
@@ -37,7 +35,7 @@ class OptimizeFront extends Command
         $type = $type[count($type) - 1];
         $models = $this->getNamespaces($content, $namespace);
         $namespace2 = str_replace('\\', '\\\\', $namespace);
-        if (count($models) == 0) {
+        if (count($models) < config('weblabor-cs.namespaces_min_results')) {
             return $content;
         }
         foreach ($models as $model) {
@@ -57,7 +55,6 @@ class OptimizeFront extends Command
                     $content = str_replace("new $clean_model", "new $type\\$original_model", $content);
                 }
             }
-
         }
 
         // Asegurarse de que 'use WeblaborMx\Front\Inputs;' está presente
